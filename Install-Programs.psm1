@@ -1,10 +1,14 @@
-﻿function Install-Programs {
+﻿using module .\Log-SimpleFile.psm1
+
+function Install-Programs {
 
 Param(
 
     [string]$ListOfProgramsToInstall
     , 
     [bool]$Restart = $false
+    ,
+    [string]$LogPath = "C:\localsetuplog.txt"
 
 )
 
@@ -14,10 +18,8 @@ Param(
 
     foreach($ProgramToInstall in $ProgramsToInstall)
     {
-        $log = "$(Get-Date -Format "yyyy/MM/dd hh:mm tt") - Installing $ProgramToInstall"
-        Write-Output $log
-        $log | Out-File -FilePath "C:\localsetuplog.txt" -Append 
-        choco install $ProgramToInstall -y
+        Log-SimpleFile -Path $LogPath -Message "Installing $ProgramToInstall" 
+        #choco install $ProgramToInstall -y
     }
 
     $ExitMessage = "Press Enter key to Continue."
@@ -34,7 +36,7 @@ Param(
     if($Restart)
     {    
         Write-Output "Restarting..."
-        Restart-Computer 
+        #Restart-Computer 
     }
 
 }
