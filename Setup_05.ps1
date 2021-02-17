@@ -30,3 +30,6 @@ $pin.Pin("$env:windir\system32\inetsrv\InetMgr.exe")
 Set-RunAsAdmin -shortcutPath "$($PathTo_TaskBarShortCuts)\IIS Manager.lnk"
 
 
+Write-output "Press Enter key to exit."
+
+Read-Host
