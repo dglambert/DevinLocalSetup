@@ -1,10 +1,18 @@
-﻿# need to disable windows v with autohotkey before I can assign to ditto 
-#https://superuser.com/questions/493828/ditto-clipboard-manager-cant-set-shortcut-of-winnum-get-error-registeri
+﻿using module .\Log-SimpleFile.psm1
 
+$LogPath = "C:\localsetuplog.txt"
 
-# Fix for Powershell shifting focus on F8 from editor window 
-# - https://github.com/arcdev/revert-powershellise
+$KeyPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
 
+Log-SimpleFile -Path $LogPath -Message "Disabling - System > Multitasking > When I snap a window, show what I can snap next to it."
+Set-ItemProperty -Path $KeyPath -Name "SnapAssist" -Value 0
 
-# Create QA 1 Chrome Profile
-## sync with devin.qa.1@gmail.com / testing123!
+Log-SimpleFile -Path $LogPath -Message "Disabling - System > Multitasking > When I snap a window, automatically size to fill available space."
+Set-ItemProperty -Path $KeyPath -Name "SnapFill" -Value 0
+
+Log-SimpleFile -Path $LogPath -Message "Disabling - System > Multitasking > When I snap a window, simultaneously resize any adjacent snapped window."
+Set-ItemProperty -Path $KeyPath -Name "JointResize" -Value 0
+
+Write-output "Press Enter key to exit."
+
+Read-Host
