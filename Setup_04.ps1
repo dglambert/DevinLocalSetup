@@ -5,6 +5,6 @@ Install-Programs -ListOfProgramsToInstall $ListOfProgramsToInstall
 
 
 Write-output "Manually install razer synapse 3 - https://www.razer.com/synapse-3"
-Write-output "Press any key to exit."
+Write-output "Press Enter key to exit."
 
 Read-Host

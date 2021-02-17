@@ -20,7 +20,7 @@ Param(
         choco install $ProgramToInstall -y
     }
 
-    $ExitMessage = "Hit Any Key to Continue."
+    $ExitMessage = "Press Enter key to Continue."
 
     if($Restart)
     {
