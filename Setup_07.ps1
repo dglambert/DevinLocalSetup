@@ -13,6 +13,7 @@ Set-ItemProperty -Path $KeyPath -Name "SnapFill" -Value 0
 Log-SimpleFile -Path $LogPath -Message "Disabling - System > Multitasking > When I snap a window, simultaneously resize any adjacent snapped window."
 Set-ItemProperty -Path $KeyPath -Name "JointResize" -Value 0
 
-Write-output "Press Enter key to exit."
-
+Write-Output "Restarting Computer. Hit Enter Key to Continue."
 Read-Host
+
+Restart-Computer 
