@@ -1,4 +1,4 @@
-﻿using module "C:\Users\dlambert\Desktop\Devin PC Setup\PinToTaskbar.psm1"
+﻿using module "C:\Users\dgleason\Documents\source\repos\DevinLocalSetup\PinToTaskbar.psm1"
 
 
 
