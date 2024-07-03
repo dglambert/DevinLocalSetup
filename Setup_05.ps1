@@ -30,6 +30,12 @@ $pin.Pin("$env:windir\system32\inetsrv\InetMgr.exe")
 Set-RunAsAdmin -shortcutPath "$($PathTo_TaskBarShortCuts)\IIS Manager.lnk"
 
 
+
+$pin.Pin("$env:LOCALAPPDATA\Microsoft\WindowsApps\wt.exe"); # pinning not working, just adding this as a reminder to pin Terminal when doing manual setup and set to run as admin.
+#Set-RunAsAdmin -shortcutPath "$($PathTo_TaskBarShortCuts)\IIS Manager.lnk"
+
+
+
 Write-output "Press Enter key to exit."
 
 Read-Host
