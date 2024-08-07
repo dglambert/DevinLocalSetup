@@ -1,4 +1,4 @@
-﻿using module "C:\Users\dgleason\Documents\source\repos\DevinLocalSetup\PinToTaskbar.psm1"
+﻿using module ".\PinToTaskbar.psm1"
 
 
 
@@ -29,7 +29,7 @@ Set-RunAsAdmin -shortcutPath "$($PathTo_TaskBarShortCuts)\SSMS 18.lnk"
 $pin.Pin("$env:windir\system32\inetsrv\InetMgr.exe") 
 Set-RunAsAdmin -shortcutPath "$($PathTo_TaskBarShortCuts)\IIS Manager.lnk"
 
-
+$pin.Pin("$env:windir\ProgramData\chocolatey\lib\rdcman\tools\RDCMan.exe") 
 
 $pin.Pin("$env:LOCALAPPDATA\Microsoft\WindowsApps\wt.exe"); # pinning not working, just adding this as a reminder to pin Terminal when doing manual setup and set to run as admin.
 #Set-RunAsAdmin -shortcutPath "$($PathTo_TaskBarShortCuts)\IIS Manager.lnk"
