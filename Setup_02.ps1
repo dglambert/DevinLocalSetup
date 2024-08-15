@@ -8,6 +8,7 @@ $ListOfProgramsToInstall_IDEsAndCompilers = @(
         , "vscode"
         , "python"
         , "visualstudio2022-workload-nativedesktop"
+        , "visualstudio2022-workload-manageddesktop"
     )
 
 $ListOfProgramsToInstall_DevelopmentTools = @(
