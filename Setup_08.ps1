@@ -1,4 +1,5 @@
 ﻿using module .\Log-SimpleFile.psm1
+using module .\RunAsAdmin.psm1
 
 $LOG_PATH = "C:\localsetuplog.txt"
 
@@ -6,21 +7,19 @@ $WINDOWS_REGISTRY_APP_COMPATIBILITY_PATH = "HKCU:\SOFTWARE\Microsoft\Windows NT\
 $IDENTIFY_APP_NAME_PATTERN = "(?!.*\\)([^\.]*)"
 
 
-Log-SimpleFile -Path $LOG_PATH -Message "Setting run as admin behavior for:"
 
-$paths_to_be_run_as_admin = "C:\Program Files (x86)\Razer\Synapse3\WPFUI\Framework\Razer Synapse 3 Host\Razer Synapse 3.exe"
+$paths_to_be_run_as_admin = 
+                            @(
+                                "C:\Program Files (x86)\Razer\Synapse3\WPFUI\Framework\Razer Synapse 3 Host\Razer Synapse 3.exe"
+                                , "C:\Program Files\Ditto\Ditto.exe"
+                                , "C:\Program Files (x86)\VirtuaWin\VirtuaWin.exe"
+                                , "C:\Program Files\AutoHotkey\AutoHotkeyU64.exe"
+                                , "C:\Program Files\Git\git-bash.exe"
+                            )
 
-foreach($path in $paths_to_be_run_as_admin -split ',')
+foreach($path in $paths_to_be_run_as_admin)
 {
-    $app_name = (Select-String -InputObject $path -Pattern $IDENTIFY_APP_NAME_PATTERN).Matches[0].Groups[0].Value
-    
-    New-ItemProperty `
-        -Path $WINDOWS_REGISTRY_APP_COMPATIBILITY_PATH `
-        -Name $path `
-        -Value "RUNASADMIN" `
-        -PropertyType "String"
-
-    Log-SimpleFile -Path $LOG_PATH -Message $app_name
-
+    Set-ProgramRunAsAdmin -ProgramPath $path
+    Log-SimpleFile -Path $LOG_PATH -Message "Set run as admin behavior for: '$($path)'"
 }
 
