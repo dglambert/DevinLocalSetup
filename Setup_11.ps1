@@ -16,7 +16,15 @@ $paths_to_add_to_startup = @(
     #     Path = "C:\Program Files (x86)\Razer\Synapse3\WPFUI\Framework\Razer Synapse 3 Host\Razer Synapse 3.exe"
     #     Argument = "/StartMinimized"
     # }
-    
+
+    # , @{
+    #     Path = "C:\Program Files\Ditto\Ditto.exe"
+    # }
+
+    # , @{
+    #     Path = "C:\Program Files (x86)\VirtuaWin\VirtuaWin.exe"
+    # }
+
 )
 
 foreach($startupApp in $paths_to_add_to_startup)

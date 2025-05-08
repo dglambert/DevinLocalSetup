@@ -4,7 +4,6 @@ $LOG_PATH = "C:\localsetuplog.txt"
 
 $WINDOWS_REGISTRY_APP_COMPATIBILITY_PATH = "HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers"
 $IDENTIFY_APP_NAME_PATTERN = "(?!.*\\)([^\.]*)"
-$PATH_TO_SCHEDULED_TASKS = 'C:\Users\dgleason\Documents\source\repos\DevinLocalSetup\Scheduled Tasks'
 
 
 Log-SimpleFile -Path $LOG_PATH -Message "Setting run as admin behavior for:"
@@ -25,18 +24,3 @@ foreach($path in $paths_to_be_run_as_admin -split ',')
 
 }
 
-
-
-Log-SimpleFile -Path $LOG_PATH -Message "Importing Scheduled Tasks:"
-
-foreach($scheduled_task_xml in $PATH_TO_SCHEDULED_TASKS | Get-ChildItem )
-{
-
-    Register-ScheduledTask -TaskPath "\" `
-                            -TaskName $scheduled_task_xml.BaseName `
-                            -XML (Get-Content $scheduled_task_xml.FullName -raw)
-
-
-    Log-SimpleFile -Path $LOG_PATH -Message $scheduled_task_xml.FullName
-
-}
