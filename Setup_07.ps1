@@ -18,6 +18,10 @@ $keyPath = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PrecisionTouchPad"
 Log-SimpleFile -Path $LogPath -Message "Disabling - Settings > Devices > Touchpad > Press the lower right corner of the touchpad to right-click"
 Set-ItemProperty -Path $keyPath -Name "RightClickZoneEnabled" -Value 0
 
+$keyPath = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\PrecisionTouchPad"
+Log-SimpleFile -Path $LogPath -Message "Setting to Middle Button - Settings > Devices > Touchpad > Three-Finger gestures > Taps "
+Set-ItemProperty -Path $keyPath -Name "ThreeFingerTapEnabled" -Value 4 # not working
+
 
 Write-Output "Restarting Computer. Hit Enter Key to Continue."
 Read-Host
