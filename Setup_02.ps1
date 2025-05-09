@@ -29,6 +29,8 @@ $ListOfProgramsToInstall_CommonApplications = @(
         , "ditto"
         , "paint.net"
         , "razer-synapse-3"
+        , "scrcpy"
+        , "adb"
     )
 
 $ListOfProgramsToInstall_Utilities = @(
