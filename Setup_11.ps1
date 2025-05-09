@@ -37,3 +37,6 @@ foreach($startupApp in $paths_to_add_to_startup)
 
 
 
+Write-output "Press Enter key to exit."
+
+Read-Host

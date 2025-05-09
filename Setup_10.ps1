@@ -19,4 +19,6 @@ Log-SimpleFile -Path $LOG_PATH -Message "Copied repo '\Map-WinV-to-Ditto.ahk' to
 
 # This is not working, leaving for now as a reminder to add ps1 to profile directory
 
-$HOME
+Write-output "Press Enter key to exit."
+
+Read-Host

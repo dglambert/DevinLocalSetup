@@ -23,3 +23,7 @@ foreach($path in $paths_to_be_run_as_admin)
     Log-SimpleFile -Path $LOG_PATH -Message "Set run as admin behavior for: '$($path)'"
 }
 
+
+Write-output "Press Enter key to exit."
+
+Read-Host

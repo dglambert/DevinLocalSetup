@@ -13,3 +13,7 @@ Copy-Item -Path "$PWD\Microsoft.PowerShell_profile.ps1" -Destination "$CurrentUs
 #robocopy "$PWD" "$CurrentUserPowerShellProfilePath" "Microsoft.PowerShell_profile.ps1"
 
 # This is not working, leaving for now as a reminder to add ps1 to profile directory
+
+Write-output "Press Enter key to exit."
+
+Read-Host
